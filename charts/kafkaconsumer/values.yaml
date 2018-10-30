@@ -5,7 +5,7 @@
 replicaCount: 1
 
 image:
-  repository: sundipnair/kafkaconsumer
+  repository: sundipnair/kafkareader
   tag: latest
   pullPolicy: Always
 
@@ -22,8 +22,8 @@ ingress:
     # kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
   path: /
-  hosts:
-    - chart-example.local
+  #hosts:
+  #  - chart-example.local
   tls: []
   #  - secretName: chart-example-tls
   #    hosts:
