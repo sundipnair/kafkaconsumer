@@ -18,14 +18,14 @@ class Consumer(threading.Thread):
     daemon = True
     def run(self):
 
-      logging.warning("test warning")
+      logging.info("test warning")
 
       consumer = KafkaConsumer(bootstrap_servers='confkafka-cp-kafka:9092',
                                 auto_offset_reset='earliest',
                                 value_deserializer=lambda m: json.loads(m.decode('utf-8')))
       consumer.subscribe(['candidate-topic'])
       for message in consumer:
-        logging.warning(message)    
+        logging.info(message)    
 
         mycursor = mydb.cursor()
 
@@ -35,7 +35,7 @@ class Consumer(threading.Thread):
 
         mydb.commit()
 
-        logging.warning(mycursor.rowcount, "record inserted.")
+        logging.info(mycursor.rowcount, "record inserted.")
 
 def main():
     threads = [
@@ -43,10 +43,11 @@ def main():
     ]
     for t in threads:
         t.start()
-    time.sleep(0.1)
+    time.sleep(1)
 if __name__ == "__main__":
     logging.basicConfig(
-        format='%(message)s',
-        level=logging.WARNING
+        format='%(asctime)s.%(msecs)s:%(name)s:%(thread)d:' +
+               '%(levelname)s:%(process)d:%(message)s',
+        level=logging.INFO
     )
     main()
