@@ -23,7 +23,7 @@ class Consumer():
         consumer.subscribe(['candidate-topic'])
         for message in consumer:
 
-            logging.debug(message)    
+          logging.debug(message)    
 
             # mycursor = mydb.cursor()
 
