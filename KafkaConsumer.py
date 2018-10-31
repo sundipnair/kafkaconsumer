@@ -2,6 +2,8 @@ import threading
 import logging
 import time
 import json
+#https://medium.com/@mukeshkumar_46704/consume-json-messages-from-kafka-using-kafka-pythons-deserializer-859f5d39e02c
+
 import logging
 from kafka import KafkaConsumer, KafkaProducer
 import mysql.connector
@@ -13,26 +15,8 @@ mydb = mysql.connector.connect(
   database="Candidate"
 )
 
-# class Producer(threading.Thread):
-#     daemon = True
-#     def run(self):
-#         producer = KafkaProducer(bootstrap_servers='confkafka-cp-kafka:9092',
-#                                  value_serializer=lambda v: json.dumps(v).encode('utf-8'))
-
-#         producer.send('candidate-topic', {"Id":0,"FirstName":"Kafka1","LastName":"Prod1","Email":"prod1@kafka.com"})
-
-#         # while True:
-#         #     producer.send('my-topic', {"dataObjectID": "test1"})
-#         #     producer.send('my-topic', {"dataObjectID": "test2"})
-#         #     time.sleep(1)
-
-
-# prod = Producer()
-# prod.run()
-
-
-class Consumer(threading.Thread):
-    daemon = True
+class Consumer():
+    #daemon = True
     def run(self):
         consumer = KafkaConsumer(bootstrap_servers='confkafka-cp-kafka:9092',
                                  auto_offset_reset='earliest',
