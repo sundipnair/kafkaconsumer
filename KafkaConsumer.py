@@ -7,7 +7,7 @@ from kafka import KafkaConsumer, KafkaProducer
 import mysql.connector
 
 mydb = mysql.connector.connect(
-  host=" 10.0.80.240:3306",
+  host="test-mysql",
   user="sundip",
   passwd="asdlkj12345",
   database="Candidate"
