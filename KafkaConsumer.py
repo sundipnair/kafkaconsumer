@@ -1,10 +1,9 @@
+#https://medium.com/@mukeshkumar_46704/consume-json-messages-from-kafka-using-kafka-pythons-deserializer-859f5d39e02c
+
 import threading
 import logging
 import time
 import json
-#https://medium.com/@mukeshkumar_46704/consume-json-messages-from-kafka-using-kafka-pythons-deserializer-859f5d39e02c
-
-import logging
 from kafka import KafkaConsumer, KafkaProducer
 import mysql.connector
 
