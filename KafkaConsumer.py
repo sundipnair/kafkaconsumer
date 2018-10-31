@@ -39,18 +39,17 @@ class Consumer(threading.Thread):
                                  value_deserializer=lambda m: json.loads(m.decode('utf-8')))
         consumer.subscribe(['candidate-topic'])
         for message in consumer:
-            print (message)
             logging.debug(message)    
 
             mycursor = mydb.cursor()
 
             sql = "insert into BasicData (FirstName, LastName, Email) VALUES (%s, %s, %s)"
-            val = ("TestF", "TestL", "TEstEmail")
+            val = ("TestF", "TestL", "TEstEmail1")
             mycursor.execute(sql, val)
 
             mydb.commit()
 
-            print(mycursor.rowcount, "record inserted.")
+            logging.debug(mycursor.rowcount, "record inserted.")
 
 c = Consumer()
 c.run()
