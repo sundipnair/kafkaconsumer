@@ -15,9 +15,11 @@ mydb = mysql.connector.connect(
 )
 
 class Consumer(threading.Thread):
-
     daemon = True
     def run(self):
+
+      logging.warning("test warning")
+
       consumer = KafkaConsumer(bootstrap_servers='confkafka-cp-kafka:9092',
                                 auto_offset_reset='earliest',
                                 value_deserializer=lambda m: json.loads(m.decode('utf-8')))
