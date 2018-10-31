@@ -36,8 +36,9 @@ class Consumer():
                                 value_deserializer=lambda m: json.loads(m.decode('utf-8')))
       consumer.subscribe(['candidate-topic'])
       for message in consumer:
-        print(message)    
-        #logging.warning(message)    
+        #print(message)    
+        logging.warning("got message")    
+        logging.warning(message)    
 
             # mycursor = mydb.cursor()
 
@@ -51,3 +52,5 @@ class Consumer():
 
 c = Consumer()
 c.run()
+
+logging.warning("this is the last message")
