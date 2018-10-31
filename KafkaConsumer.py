@@ -7,23 +7,37 @@ import json
 from kafka import KafkaConsumer, KafkaProducer
 import mysql.connector
 
-mydb = mysql.connector.connect(
-  host="test-mysql",
-  user="sundip",
-  passwd="asdlkj12345",
-  database="Candidate"
-)
+# mydb = mysql.connector.connect(
+#   host="test-mysql",
+#   user="sundip",
+#   passwd="asdlkj12345",
+#   database="Candidate"
+# )
 
 class Consumer():
+
     #daemon = True
     def run(self):
-        consumer = KafkaConsumer(bootstrap_servers='confkafka-cp-kafka:9092',
-                                 auto_offset_reset='earliest',
-                                 value_deserializer=lambda m: json.loads(m.decode('utf-8')))
-        consumer.subscribe(['candidate-topic'])
-        for message in consumer:
 
-          logging.debug(message)    
+      print("this is print message")
+
+      logging.debug("this is debug message")
+
+      logging.info("this is info message")
+
+      logging.warning("this is warning message")
+
+      logging.error("this is error message")
+
+      logging.warning("this is warning message")
+
+    #     consumer = KafkaConsumer(bootstrap_servers='confkafka-cp-kafka:9092',
+    #                              auto_offset_reset='earliest',
+    #                              value_deserializer=lambda m: json.loads(m.decode('utf-8')))
+    #     consumer.subscribe(['candidate-topic'])
+    #     for message in consumer:
+
+    #       logging.debug(message)    
 
             # mycursor = mydb.cursor()
 
