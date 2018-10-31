@@ -4,6 +4,14 @@ import time
 import json
 import logging
 from kafka import KafkaConsumer, KafkaProducer
+import mysql.connector
+
+mydb = mysql.connector.connect(
+  host="test-mysql:3306",
+  user="sundip",
+  passwd="asdlkj12345",
+  database="Candidate"
+)
 
 # class Producer(threading.Thread):
 #     daemon = True
@@ -31,8 +39,18 @@ class Consumer(threading.Thread):
                                  value_deserializer=lambda m: json.loads(m.decode('utf-8')))
         consumer.subscribe(['candidate-topic'])
         for message in consumer:
-            #print (message)
-            logging.error(message)    
+            print (message)
+            logging.debug(message)    
+
+            mycursor = mydb.cursor()
+
+            sql = "insert into BasicData (FirstName, LastName, Email) VALUES (%s, %s, %s)"
+            val = ("TestF", "TestL", "TEstEmail")
+            mycursor.execute(sql, val)
+
+            mydb.commit()
+
+            print(mycursor.rowcount, "record inserted.")
 
 c = Consumer()
 c.run()
