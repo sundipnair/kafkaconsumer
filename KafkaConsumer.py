@@ -45,7 +45,7 @@ class Consumer(threading.Thread):
 
             logging.error("error")
 
-            logging.log("log")
+            #logging.log("log")
             # logging.debug(message)    
 
             # mycursor = mydb.cursor()
