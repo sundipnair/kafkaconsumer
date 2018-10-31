@@ -39,11 +39,8 @@ class Consumer(threading.Thread):
                                  value_deserializer=lambda m: json.loads(m.decode('utf-8')))
         consumer.subscribe(['candidate-topic'])
         for message in consumer:
-            logging.debug("debug")
 
-            logging.info("info")
-
-            logging.error("error")
+            logging.debug(message)
 
             #logging.log("log")
             # logging.debug(message)    
