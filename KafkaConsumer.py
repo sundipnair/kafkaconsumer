@@ -43,9 +43,8 @@ def main():
         t.start()
     time.sleep(0.1)
 if __name__ == "__main__":
-    # logging.basicConfig(
-    #     format='%(asctime)s.%(msecs)s:%(name)s:%(thread)d:' +
-    #            '%(levelname)s:%(process)d:%(message)s',
-    #     level=logging.INFO
-    # )
+    logging.basicConfig(
+        format='%(message)s',
+        level=logging.WARNING
+    )
     main()
