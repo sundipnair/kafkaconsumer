@@ -19,7 +19,7 @@ class Consumer():
     #daemon = True
     def run(self):
 
-      # print("this is print message")
+      print("this is print message")
 
       # logging.debug("this is debug message")
 
@@ -29,7 +29,7 @@ class Consumer():
 
       # logging.error("this is error message")
 
-      # logging.warning("this is warning message")
+      logging.warning("this is warning message")
 
       consumer = KafkaConsumer(bootstrap_servers='confkafka-cp-kafka:9092',
                                 auto_offset_reset='earliest',
