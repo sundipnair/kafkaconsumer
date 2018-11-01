@@ -20,26 +20,26 @@ class Consumer(threading.Thread):
 
       logging.info("test warning")
 
-      # consumer = KafkaConsumer(bootstrap_servers='confkafka-cp-kafka:9092',
-      #                           auto_offset_reset='earliest',
-      #                           value_deserializer=lambda m: json.loads(m.decode('utf-8')))
-      # consumer.subscribe(['candidate-topic'])
-      # for message in consumer:
-      #   logging.info(message.value)    
+      consumer = KafkaConsumer(bootstrap_servers='confkafka-cp-kafka:9092',
+                                auto_offset_reset='earliest',
+                                value_deserializer=lambda m: json.loads(m.decode('utf-8')))
+      consumer.subscribe(['candidate-topic'])
+      for message in consumer:
+        logging.info(message.value)    
 
-      #   logging.info(message.value.FirstName)    
-      #   logging.info(message.value.LastName)    
-      #   logging.info(message.value.Email)    
+        logging.info(message.value.FirstName)    
+        logging.info(message.value.LastName)    
+        logging.info(message.value.Email)    
 
-      #   # mycursor = mydb.cursor()
+        # mycursor = mydb.cursor()
 
-      #   # sql = "insert into BasicData (FirstName, LastName, Email) VALUES (%s, %s, %s)"
-      #   # val = ("TestF", "TestL", "TEstEmail1")
-      #   # mycursor.execute(sql, val)
+        # sql = "insert into BasicData (FirstName, LastName, Email) VALUES (%s, %s, %s)"
+        # val = ("TestF", "TestL", "TEstEmail1")
+        # mycursor.execute(sql, val)
 
-      #   # mydb.commit()
+        # mydb.commit()
 
-      #   # logging.info(mycursor.rowcount, "record inserted.")
+        # logging.info(mycursor.rowcount, "record inserted.")
       logging.info("thread finish")
 
 def main():
