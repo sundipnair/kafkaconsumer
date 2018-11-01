@@ -27,11 +27,9 @@ class Consumer(threading.Thread):
       for message in consumer:
         # logging.info(message.value)    
 
-        obj = json.loads(message.value)
-
-        logging.info(obj)
-
-        logging.info(obj["FirstName"])
+        logging.info(message.value.get("FirstName", "Default First Name"))
+        logging.info(message.value.get("LastName", "Default Last Name"))
+        logging.info(message.value.get("Email", "Default Email"))
 
         # mycursor = mydb.cursor()
 
