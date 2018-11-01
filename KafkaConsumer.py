@@ -25,10 +25,9 @@ class Consumer(threading.Thread):
                                 value_deserializer=lambda m: json.loads(m.decode('utf-8')))
       consumer.subscribe(['candidate-topic'])
       for message in consumer:
-        # logging.info(message.value)    
+        logging.info(message.value["FirstName"])    
 
-        for item in message.value.items():
-          logging.info(item["FirstName"])
+        # for item in message.value.items():
           # logging.info(item)
           # logging.info(type(item))
           # logging.info(item[0])
