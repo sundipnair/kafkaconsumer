@@ -25,17 +25,13 @@ class Consumer(threading.Thread):
                                 value_deserializer=lambda m: json.loads(m.decode('utf-8')))
       consumer.subscribe(['candidate-topic'])
       for message in consumer:
-        logging.info(message.value)    
-
-        # logging.info(message.value["FirstName"])    
-        # logging.info(message.value["LastName"])    
-        # logging.info(message.value["Email"])    
+        # logging.info(message.value)    
 
         obj = json.loads(message.value)
 
         logging.info(obj)
 
-        logging.info(obj[obj["FirstName"]])
+        logging.info(obj["FirstName"])
 
         # mycursor = mydb.cursor()
 
