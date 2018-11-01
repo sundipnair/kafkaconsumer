@@ -27,9 +27,12 @@ class Consumer(threading.Thread):
       for message in consumer:
         # logging.info(message.value)    
 
-        logging.info(message.value.get("FirstName", "Default First Name"))
-        logging.info(message.value.get("LastName", "Default Last Name"))
-        logging.info(message.value.get("Email", "Default Email"))
+        for item in iter(message)
+          logging.log(item)
+
+        # logging.info(message.value.get("FirstName", "Default First Name"))
+        # logging.info(message.value.get("LastName", "Default Last Name"))
+        # logging.info(message.value.get("Email", "Default Email"))
 
         # mycursor = mydb.cursor()
 
