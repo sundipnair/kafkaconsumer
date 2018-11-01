@@ -32,6 +32,7 @@ class Consumer(threading.Thread):
         # logging.info(message.value["Email"])    
 
         logging.info(type(message.value))
+        logging.info(vars(message.value))
 
         # mycursor = mydb.cursor()
 
