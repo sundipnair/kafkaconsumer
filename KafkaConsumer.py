@@ -20,22 +20,27 @@ class Consumer(threading.Thread):
 
       logging.info("test warning")
 
-      consumer = KafkaConsumer(bootstrap_servers='confkafka-cp-kafka:9092',
-                                auto_offset_reset='earliest',
-                                value_deserializer=lambda m: json.loads(m.decode('utf-8')))
-      consumer.subscribe(['candidate-topic'])
-      for message in consumer:
-        logging.info(message.value)    
+      # consumer = KafkaConsumer(bootstrap_servers='confkafka-cp-kafka:9092',
+      #                           auto_offset_reset='earliest',
+      #                           value_deserializer=lambda m: json.loads(m.decode('utf-8')))
+      # consumer.subscribe(['candidate-topic'])
+      # for message in consumer:
+      #   logging.info(message.value)    
 
-        # mycursor = mydb.cursor()
+      #   logging.info(message.value.FirstName)    
+      #   logging.info(message.value.LastName)    
+      #   logging.info(message.value.Email)    
 
-        # sql = "insert into BasicData (FirstName, LastName, Email) VALUES (%s, %s, %s)"
-        # val = ("TestF", "TestL", "TEstEmail1")
-        # mycursor.execute(sql, val)
+      #   # mycursor = mydb.cursor()
 
-        # mydb.commit()
+      #   # sql = "insert into BasicData (FirstName, LastName, Email) VALUES (%s, %s, %s)"
+      #   # val = ("TestF", "TestL", "TEstEmail1")
+      #   # mycursor.execute(sql, val)
 
-        # logging.info(mycursor.rowcount, "record inserted.")
+      #   # mydb.commit()
+
+      #   # logging.info(mycursor.rowcount, "record inserted.")
+      logging.info("thread finish")
 
 def main():
     threads = [
@@ -44,10 +49,13 @@ def main():
     for t in threads:
         t.start()
     time.sleep(1)
-if __name__ == "__main__":
-    logging.basicConfig(
-        format='%(asctime)s.%(msecs)s:%(name)s:%(thread)d:' +
-               '%(levelname)s:%(process)d:%(message)s',
-        level=logging.INFO
-    )
-    main()
+#if __name__ == "__main__":
+
+logging.basicConfig(
+    format='%(asctime)s.%(msecs)s:%(name)s:%(thread)d:' +
+            '%(levelname)s:%(process)d:%(message)s',
+    level=logging.INFO
+)
+main()
+
+logging.info("app finish")
