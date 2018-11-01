@@ -49,13 +49,12 @@ def main():
     for t in threads:
         t.start()
     time.sleep(1)
-#if __name__ == "__main__":
-
-logging.basicConfig(
-    format='%(asctime)s.%(msecs)s:%(name)s:%(thread)d:' +
-            '%(levelname)s:%(process)d:%(message)s',
-    level=logging.INFO
-)
-main()
+if __name__ == "__main__":
+  logging.basicConfig(
+      format='%(asctime)s.%(msecs)s:%(name)s:%(thread)d:' +
+              '%(levelname)s:%(process)d:%(message)s',
+      level=logging.INFO
+  )
+  main()
 
 logging.info("app finish")
