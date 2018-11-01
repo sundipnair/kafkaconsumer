@@ -28,7 +28,7 @@ class Consumer(threading.Thread):
         # logging.info(message.value)    
 
         for item in message.value.items():
-          logging.info(item)
+          logging.info(item.value)
 
         # logging.info(message.value.get("FirstName", "Default First Name"))
         # logging.info(message.value.get("LastName", "Default Last Name"))
